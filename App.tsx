@@ -104,16 +104,16 @@ const APPS: AppData[] = [
   },
   {
     id: 'image-editor',
-    name: 'Image Editor',
-    description: 'Edita imágenes con Gemini. Sube una imagen y describe los cambios que quieres hacer.',
-    url: 'https://gemini-image-enhancer-631000688449.us-west1.run.app',
+    name: 'Editor de Imágenes Gemini',
+    description: 'Edita imágenes con simples comandos de texto usando Gemini. Transforma, mejora o modifica tus fotos de manera creativa.',
+    url: 'https://gemini-image-editor-631000688449.us-west1.run.app',
     colorClasses: {
-      bg: 'bg-blue-500',
-      hoverBg: 'hover:bg-blue-400',
-      shadow: 'shadow-blue-500/40',
-      hoverShadow: 'hover:shadow-blue-500/30',
-      text: 'text-blue-400',
-      border: 'border-blue-500'
+      bg: 'bg-rose-500',
+      hoverBg: 'hover:bg-rose-400',
+      shadow: 'shadow-rose-500/40',
+      hoverShadow: 'hover:shadow-rose-500/30',
+      text: 'text-rose-400',
+      border: 'border-rose-500'
     }
   }
 ];
