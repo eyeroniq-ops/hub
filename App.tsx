@@ -8,7 +8,7 @@ const APPS: AppData[] = [
     id: 'search-matrix',
     name: 'Search Matrix',
     description: 'Una herramienta de búsqueda avanzada para descubrir y analizar negocios, proporcionando profundos conocimientos del mercado e inteligencia competitiva.',
-    url: '#',
+    url: 'https://searchmatrix.netlify.app',
     colorClasses: {
       bg: 'bg-emerald-500',
       hoverBg: 'hover:bg-emerald-400',
@@ -22,7 +22,7 @@ const APPS: AppData[] = [
     id: 'ai-mockups',
     name: 'AI Mockups',
     description: 'Genera maquetas de productos impresionantes y de alta fidelidad en segundos. Simplemente describe tu visión y deja que nuestra IA le dé vida.',
-    url: '#',
+    url: 'https://gemini-ai-mockup-generator-769977439353.us-west1.run.app',
     colorClasses: {
       bg: 'bg-fuchsia-500',
       hoverBg: 'hover:bg-fuchsia-400',
@@ -36,7 +36,7 @@ const APPS: AppData[] = [
     id: 'ai-posts',
     name: 'AI Posts',
     description: 'Crea publicaciones para redes sociales atractivas y optimizadas sin esfuerzo. Nuestra IA entiende tu marca y elabora contenido convincente.',
-    url: '#',
+    url: 'https://generador-de-publicaciones-de-redes-sociales-con-1089729397816.us-west1.run.app',
     colorClasses: {
       bg: 'bg-emerald-500',
       hoverBg: 'hover:bg-emerald-400',
@@ -50,7 +50,7 @@ const APPS: AppData[] = [
     id: 'remixer',
     name: 'Remixer',
     description: 'Clona y remezcla cualquier logotipo con el poder de la IA. Una herramienta revolucionaria para la inspiración de marcas y la creación rápida de prototipos.',
-    url: '#',
+    url: 'https://remixer-769977439353.us-west1.run.app',
     colorClasses: {
       bg: 'bg-fuchsia-500',
       hoverBg: 'hover:bg-fuchsia-400',
@@ -64,7 +64,7 @@ const APPS: AppData[] = [
     id: 'brand-assist',
     name: 'Brand Assist',
     description: 'Tu compañero de marca inteligente. Chatea con la base de conocimientos de tu marca para generar publicaciones y descripciones precisas.',
-    url: '#',
+    url: 'https://gemini-brand-chat-assistant-631000688449.us-west1.run.app',
     colorClasses: {
       bg: 'bg-emerald-500',
       hoverBg: 'hover:bg-emerald-400',
@@ -78,7 +78,7 @@ const APPS: AppData[] = [
     id: 'moodboards',
     name: 'Moodboards',
     description: 'Crea moodboards dinámicos e inspiradores sin esfuerzo. Nuestra IA selecciona imágenes, paletas de colores y tipografías basadas en tus ideas.',
-    url: '#',
+    url: 'https://social-media-moodboard-ai-631000688449.us-west1.run.app',
     colorClasses: {
       bg: 'bg-fuchsia-500',
       hoverBg: 'hover:bg-fuchsia-400',
