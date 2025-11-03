@@ -87,6 +87,20 @@ const APPS: AppData[] = [
       text: 'text-fuchsia-400',
       border: 'border-fuchsia-500'
     }
+  },
+  {
+    id: 'image-mixer',
+    name: 'Mezclador de Imágenes',
+    description: 'Usa IA para mezclar una imagen de primer plano con una de fondo, creando composiciones únicas y sorprendentes.',
+    url: 'https://mezclador-de-im-genes-gemini-623608258254.us-west1.run.app',
+    colorClasses: {
+      bg: 'bg-emerald-500',
+      hoverBg: 'hover:bg-emerald-400',
+      shadow: 'shadow-emerald-500/40',
+      hoverShadow: 'hover:shadow-emerald-500/30',
+      text: 'text-emerald-400',
+      border: 'border-emerald-500'
+    }
   }
 ];
 
