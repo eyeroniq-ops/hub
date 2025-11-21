@@ -36,48 +36,18 @@ const APPS: AppData[] = [
     }
   },
   {
-    id: 'ai-mockups',
-    name: 'AI Mockups',
-    description: 'High-fidelity product mockup generator using generative models.',
-    url: 'https://gemini-ai-mockup-generator-769977439353.us-west1.run.app',
+    id: 'ai-studio',
+    name: 'AI Studio',
+    description: 'Comprehensive AI design environment for professional content creation.',
+    url: 'https://ai-studio-eyeroniq-631000688449.us-west1.run.app',
     category: 'Diseño',
     colorClasses: {
-      bg: '#a855f7', // Purple
-      hoverBg: '#c084fc',
-      shadow: '#9333ea',
-      hoverShadow: '#a855f7',
-      text: 'text-purple-400',
-      border: 'border-purple-500'
-    }
-  },
-  {
-    id: 'ai-posts',
-    name: 'AI Posts',
-    description: 'Create engaging social media posts instantly with automated copywriting.',
-    url: 'https://generador-de-publicaciones-de-redes-sociales-con-1089729397816.us-west1.run.app',
-    category: 'Diseño',
-    colorClasses: {
-      bg: '#d946ef', // Fuchsia
-      hoverBg: '#e879f9',
-      shadow: '#c026d3',
-      hoverShadow: '#d946ef',
-      text: 'text-fuchsia-400',
-      border: 'border-fuchsia-500'
-    }
-  },
-  {
-    id: 'remixer',
-    name: 'Remixer',
-    description: 'Intelligent logo cloning and style remixing tool for designers.',
-    url: 'https://remixer-769977439353.us-west1.run.app',
-    category: 'Diseño',
-    colorClasses: {
-      bg: '#ec4899', // Pink
-      hoverBg: '#f472b6',
-      shadow: '#db2777',
-      hoverShadow: '#ec4899',
-      text: 'text-pink-400',
-      border: 'border-pink-500'
+      bg: '#ef4444', // Red
+      hoverBg: '#f87171',
+      shadow: '#dc2626',
+      hoverShadow: '#ef4444',
+      text: 'text-red-400',
+      border: 'border-red-500'
     }
   },
   {
@@ -93,51 +63,6 @@ const APPS: AppData[] = [
       hoverShadow: '#2563eb',
       text: 'text-blue-400',
       border: 'border-blue-600'
-    }
-  },
-  {
-    id: 'moodboards',
-    name: 'Moodboards',
-    description: 'Dynamic inspiration board creator for pre-production workflows.',
-    url: 'https://social-media-moodboard-ai-631000688449.us-west1.run.app',
-    category: 'Diseño',
-    colorClasses: {
-      bg: '#8b5cf6', // Violet
-      hoverBg: '#a78bfa',
-      shadow: '#7c3aed',
-      hoverShadow: '#8b5cf6',
-      text: 'text-violet-400',
-      border: 'border-violet-500'
-    }
-  },
-  {
-    id: 'image-mixer',
-    name: 'Image Mixer',
-    description: 'Unique composition mixer for blending multiple image sources.',
-    url: 'https://mezclador-de-im-genes-gemini-623608258254.us-west1.run.app',
-    category: 'Diseño',
-    colorClasses: {
-      bg: '#6366f1', // Indigo
-      hoverBg: '#818cf8',
-      shadow: '#4f46e5',
-      hoverShadow: '#6366f1',
-      text: 'text-indigo-400',
-      border: 'border-indigo-500'
-    }
-  },
-  {
-    id: 'image-editor',
-    name: 'Editor Gemini',
-    description: 'Natural language text-command based image editing suite.',
-    url: 'https://gemini-image-editor-631000688449.us-west1.run.app',
-    category: 'Diseño',
-    colorClasses: {
-      bg: '#f43f5e', // Rose
-      hoverBg: '#fb7185',
-      shadow: '#e11d48',
-      hoverShadow: '#f43f5e',
-      text: 'text-rose-400',
-      border: 'border-rose-500'
     }
   },
   {
