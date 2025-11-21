@@ -47,7 +47,7 @@ const AppModal: React.FC<AppModalProps> = ({ app, onClose }) => {
                     {app.category}
                 </span>
                 <span className="w-1 h-1 bg-neutral-600 rounded-full"></span>
-                <span className="text-sm text-emerald-500 font-medium">Active</span>
+                <span className="text-sm text-emerald-500 font-medium">Activo</span>
             </div>
 
             <p className="text-neutral-400 leading-relaxed mb-8 text-base">
@@ -56,11 +56,11 @@ const AppModal: React.FC<AppModalProps> = ({ app, onClose }) => {
 
             <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
-                    <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Latency</div>
+                    <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Latencia</div>
                     <div className="text-white font-mono font-bold">12ms</div>
                 </div>
                 <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
-                    <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Version</div>
+                    <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Versión</div>
                     <div className="text-white font-mono font-bold">2.4.0</div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ const AppModal: React.FC<AppModalProps> = ({ app, onClose }) => {
                 className={`block w-full py-4 text-center font-bold text-black rounded-xl transition-transform hover:scale-[1.01] active:scale-[0.99]`}
                 style={{ backgroundColor: 'white' }}
             >
-                LAUNCH {app.name.toUpperCase()}
+                INICIAR {app.name.toUpperCase()}
             </a>
         </div>
       </div>

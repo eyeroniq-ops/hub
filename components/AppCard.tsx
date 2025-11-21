@@ -35,7 +35,7 @@ const AppCard: React.FC<AppCardProps> = ({ app, onClick }) => {
       <div className="pt-4 border-t border-white/5 flex justify-between items-center">
          <span className="text-xs text-neutral-600 font-mono">v1.0.4</span>
          <div className="flex items-center gap-2 text-xs font-bold text-neutral-400 group-hover:text-white transition-colors">
-            <span>OPEN MODULE</span>
+            <span>ABRIR MÓDULO</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

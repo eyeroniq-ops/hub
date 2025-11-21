@@ -8,7 +8,7 @@ const APPS: AppData[] = [
   {
     id: 'search-matrix',
     name: 'Search Matrix',
-    description: 'Advanced search and competitive intelligence matrix for market analysis.',
+    description: 'Matriz de búsqueda avanzada e inteligencia competitiva para análisis de mercado.',
     url: 'https://searchmatrix.netlify.app',
     category: 'Búsqueda',
     colorClasses: {
@@ -23,7 +23,7 @@ const APPS: AppData[] = [
   {
     id: 'brand-status',
     name: 'Brand Status',
-    description: 'Advanced diagnostic framework for brand consistency and health tracking.',
+    description: 'Marco de diagnóstico avanzado para la consistencia de marca y seguimiento de salud.',
     url: 'https://brandstatus.netlify.app',
     category: 'Diagnóstico',
     colorClasses: {
@@ -38,7 +38,7 @@ const APPS: AppData[] = [
   {
     id: 'ai-studio',
     name: 'AI Studio',
-    description: 'Comprehensive AI design environment for professional content creation.',
+    description: 'Entorno de diseño integral de IA para la creación de contenido profesional.',
     url: 'https://ai-studio-eyeroniq-631000688449.us-west1.run.app',
     category: 'Diseño',
     colorClasses: {
@@ -53,7 +53,7 @@ const APPS: AppData[] = [
   {
     id: 'brand-assist',
     name: 'Brand Assist',
-    description: 'Smart brand companion and identity manager for corporate assets.',
+    description: 'Compañero de marca inteligente y gestor de identidad para activos corporativos.',
     url: 'https://gemini-brand-chat-assistant-631000688449.us-west1.run.app',
     category: 'Administrativo',
     colorClasses: {
@@ -68,7 +68,7 @@ const APPS: AppData[] = [
   {
     id: 'social-media-wizard',
     name: 'Social Media Wizard',
-    description: 'Strategic planning and administrative dashboard for social channels.',
+    description: 'Panel administrativo y de planificación estratégica para canales sociales.',
     url: 'https://socialmediawizard.netlify.app/',
     category: 'Administrativo',
     colorClasses: {
@@ -83,7 +83,7 @@ const APPS: AppData[] = [
   {
     id: 'eyecot',
     name: 'Eyecot',
-    description: 'Intelligent quotation and resource estimation tool for projects.',
+    description: 'Herramienta inteligente de cotización y estimación de recursos para proyectos.',
     url: 'https://eyecot.netlify.app/',
     category: 'Administrativo',
     colorClasses: {
@@ -98,9 +98,9 @@ const APPS: AppData[] = [
   {
     id: 'survey-eyeroniq',
     name: 'Survey Eyeroniq',
-    description: 'Comprehensive feedback collection and analysis system.',
+    description: 'Sistema integral de recopilación y análisis de opiniones y retroalimentación.',
     url: 'https://surveyeroniq.netlify.app',
-    category: 'Administrativo',
+    category: 'Diagnóstico',
     colorClasses: {
       bg: '#84cc16', // Lime
       hoverBg: '#a3e635',
@@ -165,7 +165,7 @@ const App: React.FC = () => {
           <div className="relative">
             <input 
               type="text" 
-              placeholder="Search tools..." 
+              placeholder="Buscar herramientas..." 
               className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 pl-10 text-sm focus:outline-none focus:border-emerald-500/50 transition-colors placeholder:text-neutral-600"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -175,13 +175,13 @@ const App: React.FC = () => {
         </div>
 
         <nav className="flex-1 overflow-y-auto p-4 space-y-1">
-          <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4 px-2 mt-4">Categories</div>
+          <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4 px-2 mt-4">Categorías</div>
           <button 
             onClick={() => { setActiveCategory('All'); setIsMobileMenuOpen(false); }}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${activeCategory === 'All' ? 'bg-white/10 text-white' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}
           >
             <div className={`w-2 h-2 rounded-full ${activeCategory === 'All' ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]' : 'bg-neutral-600'}`}></div>
-            Overview
+            Vista General
           </button>
           
           {CATEGORIES.map(cat => (
@@ -201,7 +201,7 @@ const App: React.FC = () => {
             <div className="w-8 h-8 rounded-full bg-neutral-700 flex items-center justify-center text-xs font-bold text-white">JD</div>
             <div className="flex-1">
                <div className="text-xs font-medium text-white">John Doe</div>
-               <div className="text-[10px] text-neutral-500">Administrator</div>
+               <div className="text-[10px] text-neutral-500">Administrador</div>
             </div>
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           </div>
@@ -214,17 +214,17 @@ const App: React.FC = () => {
         {/* Header with Stats (Desktop) */}
         <div className="hidden md:flex items-center justify-between px-8 py-6 border-b border-white/5 bg-[#050505]/50 backdrop-blur-sm sticky top-0 z-20">
           <div>
-            <h2 className="text-2xl font-space font-bold text-white">Dashboard</h2>
-            <p className="text-neutral-400 text-sm">Welcome back to Neural Hub.</p>
+            <h2 className="text-2xl font-space font-bold text-white">Panel Principal</h2>
+            <p className="text-neutral-400 text-sm">Bienvenido de nuevo al Hub Neuronal.</p>
           </div>
           <div className="flex gap-4">
              <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/5 flex flex-col items-end">
-                <span className="text-[10px] text-neutral-500 uppercase tracking-wider">Active Tools</span>
+                <span className="text-[10px] text-neutral-500 uppercase tracking-wider">Herramientas Activas</span>
                 <span className="font-mono text-lg font-bold text-emerald-400">{filteredApps.length}</span>
              </div>
              <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/5 flex flex-col items-end">
-                <span className="text-[10px] text-neutral-500 uppercase tracking-wider">System Status</span>
-                <span className="font-mono text-lg font-bold text-blue-400">ONLINE</span>
+                <span className="text-[10px] text-neutral-500 uppercase tracking-wider">Estado Sistema</span>
+                <span className="font-mono text-lg font-bold text-blue-400">EN LÍNEA</span>
              </div>
           </div>
         </div>
@@ -235,7 +235,7 @@ const App: React.FC = () => {
               onClick={() => setActiveCategory('All')}
               className={`px-4 py-1.5 rounded-full text-xs font-bold border transition-colors ${activeCategory === 'All' ? 'bg-white text-black border-white' : 'bg-transparent text-neutral-400 border-white/20'}`}
            >
-             All
+             Todo
            </button>
            {CATEGORIES.map(cat => (
              <button 
@@ -253,7 +253,7 @@ const App: React.FC = () => {
           {filteredApps.length === 0 ? (
             <div className="h-64 flex flex-col items-center justify-center text-neutral-500">
                <svg className="w-12 h-12 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-               <p>No active modules found for this query.</p>
+               <p>No se encontraron módulos activos para esta búsqueda.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 pb-20">
