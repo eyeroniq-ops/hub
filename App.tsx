@@ -1,157 +1,347 @@
-import React, { useState } from 'react';
-import AppCard from './components/AppCard';
+import React, { useState, useMemo } from 'react';
 import AppModal from './components/AppModal';
-import { AppData } from './types';
+import AppCard from './components/AppCard';
+import { AppData, AppCategory } from './types';
 
+// --- DATA ---
 const APPS: AppData[] = [
   {
     id: 'search-matrix',
     name: 'Search Matrix',
-    description: 'Una herramienta de búsqueda avanzada para descubrir y analizar negocios, proporcionando profundos conocimientos del mercado e inteligencia competitiva.',
+    description: 'Advanced search and competitive intelligence matrix for market analysis.',
     url: 'https://searchmatrix.netlify.app',
+    category: 'Búsqueda',
     colorClasses: {
-      bg: 'bg-emerald-500',
-      hoverBg: 'hover:bg-emerald-400',
-      shadow: 'shadow-emerald-500/40',
-      hoverShadow: 'hover:shadow-emerald-500/30',
-      text: 'text-emerald-400',
-      border: 'border-emerald-500'
+      bg: '#06b6d4', // Cyan
+      hoverBg: '#22d3ee',
+      shadow: '#0891b2',
+      hoverShadow: '#06b6d4',
+      text: 'text-cyan-400',
+      border: 'border-cyan-500'
+    }
+  },
+  {
+    id: 'brand-status',
+    name: 'Brand Status',
+    description: 'Advanced diagnostic framework for brand consistency and health tracking.',
+    url: 'https://brandstatus.netlify.app',
+    category: 'Diagnóstico',
+    colorClasses: {
+      bg: '#f97316', // Orange
+      hoverBg: '#fb923c',
+      shadow: '#ea580c',
+      hoverShadow: '#f97316',
+      text: 'text-orange-400',
+      border: 'border-orange-500'
     }
   },
   {
     id: 'ai-mockups',
     name: 'AI Mockups',
-    description: 'Genera maquetas de productos impresionantes y de alta fidelidad en segundos. Simplemente describe tu visión y deja que nuestra IA le dé vida.',
+    description: 'High-fidelity product mockup generator using generative models.',
     url: 'https://gemini-ai-mockup-generator-769977439353.us-west1.run.app',
+    category: 'Diseño',
     colorClasses: {
-      bg: 'bg-fuchsia-500',
-      hoverBg: 'hover:bg-fuchsia-400',
-      shadow: 'shadow-fuchsia-500/40',
-      hoverShadow: 'hover:shadow-fuchsia-500/30',
-      text: 'text-fuchsia-400',
-      border: 'border-fuchsia-500'
+      bg: '#a855f7', // Purple
+      hoverBg: '#c084fc',
+      shadow: '#9333ea',
+      hoverShadow: '#a855f7',
+      text: 'text-purple-400',
+      border: 'border-purple-500'
     }
   },
   {
     id: 'ai-posts',
     name: 'AI Posts',
-    description: 'Crea publicaciones para redes sociales atractivas y optimizadas sin esfuerzo. Nuestra IA entiende tu marca y elabora contenido convincente.',
+    description: 'Create engaging social media posts instantly with automated copywriting.',
     url: 'https://generador-de-publicaciones-de-redes-sociales-con-1089729397816.us-west1.run.app',
+    category: 'Diseño',
     colorClasses: {
-      bg: 'bg-emerald-500',
-      hoverBg: 'hover:bg-emerald-400',
-      shadow: 'shadow-emerald-500/40',
-      hoverShadow: 'hover:shadow-emerald-500/30',
-      text: 'text-emerald-400',
-      border: 'border-emerald-500'
+      bg: '#d946ef', // Fuchsia
+      hoverBg: '#e879f9',
+      shadow: '#c026d3',
+      hoverShadow: '#d946ef',
+      text: 'text-fuchsia-400',
+      border: 'border-fuchsia-500'
     }
   },
   {
     id: 'remixer',
     name: 'Remixer',
-    description: 'Clona y remezcla cualquier logotipo con el poder de la IA. Una herramienta revolucionaria para la inspiración de marcas y la creación rápida de prototipos.',
+    description: 'Intelligent logo cloning and style remixing tool for designers.',
     url: 'https://remixer-769977439353.us-west1.run.app',
+    category: 'Diseño',
     colorClasses: {
-      bg: 'bg-fuchsia-500',
-      hoverBg: 'hover:bg-fuchsia-400',
-      shadow: 'shadow-fuchsia-500/40',
-      hoverShadow: 'hover:shadow-fuchsia-500/30',
-      text: 'text-fuchsia-400',
-      border: 'border-fuchsia-500'
+      bg: '#ec4899', // Pink
+      hoverBg: '#f472b6',
+      shadow: '#db2777',
+      hoverShadow: '#ec4899',
+      text: 'text-pink-400',
+      border: 'border-pink-500'
     }
   },
   {
     id: 'brand-assist',
     name: 'Brand Assist',
-    description: 'Tu compañero de marca inteligente. Chatea con la base de conocimientos de tu marca para generar publicaciones y descripciones precisas.',
+    description: 'Smart brand companion and identity manager for corporate assets.',
     url: 'https://gemini-brand-chat-assistant-631000688449.us-west1.run.app',
+    category: 'Administrativo',
     colorClasses: {
-      bg: 'bg-emerald-500',
-      hoverBg: 'hover:bg-emerald-400',
-      shadow: 'shadow-emerald-500/40',
-      hoverShadow: 'hover:shadow-emerald-500/30',
-      text: 'text-emerald-400',
-      border: 'border-emerald-500'
+      bg: '#2563eb', // Blue
+      hoverBg: '#3b82f6',
+      shadow: '#1d4ed8',
+      hoverShadow: '#2563eb',
+      text: 'text-blue-400',
+      border: 'border-blue-600'
     }
   },
   {
     id: 'moodboards',
     name: 'Moodboards',
-    description: 'Crea moodboards dinámicos e inspiradores sin esfuerzo. Nuestra IA selecciona imágenes, paletas de colores y tipografías basadas en tus ideas.',
+    description: 'Dynamic inspiration board creator for pre-production workflows.',
     url: 'https://social-media-moodboard-ai-631000688449.us-west1.run.app',
+    category: 'Diseño',
     colorClasses: {
-      bg: 'bg-fuchsia-500',
-      hoverBg: 'hover:bg-fuchsia-400',
-      shadow: 'shadow-fuchsia-500/40',
-      hoverShadow: 'hover:shadow-fuchsia-500/30',
-      text: 'text-fuchsia-400',
-      border: 'border-fuchsia-500'
+      bg: '#8b5cf6', // Violet
+      hoverBg: '#a78bfa',
+      shadow: '#7c3aed',
+      hoverShadow: '#8b5cf6',
+      text: 'text-violet-400',
+      border: 'border-violet-500'
     }
   },
   {
     id: 'image-mixer',
-    name: 'Mezclador de Imágenes',
-    description: 'Usa IA para mezclar una imagen de primer plano con una de fondo, creando composiciones únicas y sorprendentes.',
+    name: 'Image Mixer',
+    description: 'Unique composition mixer for blending multiple image sources.',
     url: 'https://mezclador-de-im-genes-gemini-623608258254.us-west1.run.app',
+    category: 'Diseño',
     colorClasses: {
-      bg: 'bg-emerald-500',
-      hoverBg: 'hover:bg-emerald-400',
-      shadow: 'shadow-emerald-500/40',
-      hoverShadow: 'hover:shadow-emerald-500/30',
+      bg: '#6366f1', // Indigo
+      hoverBg: '#818cf8',
+      shadow: '#4f46e5',
+      hoverShadow: '#6366f1',
+      text: 'text-indigo-400',
+      border: 'border-indigo-500'
+    }
+  },
+  {
+    id: 'image-editor',
+    name: 'Editor Gemini',
+    description: 'Natural language text-command based image editing suite.',
+    url: 'https://gemini-image-editor-631000688449.us-west1.run.app',
+    category: 'Diseño',
+    colorClasses: {
+      bg: '#f43f5e', // Rose
+      hoverBg: '#fb7185',
+      shadow: '#e11d48',
+      hoverShadow: '#f43f5e',
+      text: 'text-rose-400',
+      border: 'border-rose-500'
+    }
+  },
+  {
+    id: 'social-media-wizard',
+    name: 'Social Media Wizard',
+    description: 'Strategic planning and administrative dashboard for social channels.',
+    url: 'https://socialmediawizard.netlify.app/',
+    category: 'Administrativo',
+    colorClasses: {
+      bg: '#10b981', // Emerald
+      hoverBg: '#34d399',
+      shadow: '#059669',
+      hoverShadow: '#10b981',
       text: 'text-emerald-400',
       border: 'border-emerald-500'
     }
   },
   {
-    id: 'image-editor',
-    name: 'Editor de Imágenes Gemini',
-    description: 'Edita imágenes con simples comandos de texto usando Gemini. Transforma, mejora o modifica tus fotos de manera creativa.',
-    url: 'https://gemini-image-editor-631000688449.us-west1.run.app',
+    id: 'eyecot',
+    name: 'Eyecot',
+    description: 'Intelligent quotation and resource estimation tool for projects.',
+    url: 'https://eyecot.netlify.app/',
+    category: 'Administrativo',
     colorClasses: {
-      bg: 'bg-rose-500',
-      hoverBg: 'hover:bg-rose-400',
-      shadow: 'shadow-rose-500/40',
-      hoverShadow: 'hover:shadow-rose-500/30',
-      text: 'text-rose-400',
-      border: 'border-rose-500'
+      bg: '#f59e0b', // Amber
+      hoverBg: '#fbbf24',
+      shadow: '#d97706',
+      hoverShadow: '#f59e0b',
+      text: 'text-amber-400',
+      border: 'border-amber-500'
+    }
+  },
+  {
+    id: 'survey-eyeroniq',
+    name: 'Survey Eyeroniq',
+    description: 'Comprehensive feedback collection and analysis system.',
+    url: 'https://surveyeroniq.netlify.app',
+    category: 'Administrativo',
+    colorClasses: {
+      bg: '#84cc16', // Lime
+      hoverBg: '#a3e635',
+      shadow: '#65a30d',
+      hoverShadow: '#84cc16',
+      text: 'text-lime-400',
+      border: 'border-lime-500'
     }
   }
 ];
 
+const CATEGORIES: AppCategory[] = ['Diseño', 'Búsqueda', 'Diagnóstico', 'Administrativo'];
+
 const App: React.FC = () => {
   const [selectedApp, setSelectedApp] = useState<AppData | null>(null);
+  const [activeCategory, setActiveCategory] = useState<AppCategory | 'All'>('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleCardClick = (app: AppData) => {
-    setSelectedApp(app);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedApp(null);
-  };
+  const filteredApps = useMemo(() => {
+    return APPS.filter(app => {
+      const matchesCategory = activeCategory === 'All' || app.category === activeCategory;
+      const matchesSearch = app.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            app.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, searchQuery]);
 
   return (
-    <main className="relative w-full min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white p-4 sm:p-8">
-      <div aria-hidden="true" className="fixed inset-0 z-0 opacity-30 blur-3xl">
-        <div className="absolute top-0 -left-1/4 w-full h-full bg-fuchsia-700/50 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-0 -right-1/4 w-full h-full bg-emerald-700/50 rounded-full animate-pulse [animation-delay:3s]"></div>
-      </div>
-      <div aria-hidden="true" className="fixed inset-0 z-0 bg-black/30"></div>
+    <div className="min-h-screen flex flex-col md:flex-row bg-[#050505] text-white overflow-hidden">
       
-      <div className="relative z-10 container mx-auto">
-        <header className="text-center my-16 md:my-24">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400">eyeroniq</h1>
-          <p className="text-lg text-neutral-500">Suite de Aplicaciones Potenciadas por IA</p>
-        </header>
+      {/* --- BACKGROUND GRID --- */}
+      <div className="fixed inset-0 bg-grid-pattern z-0 pointer-events-none opacity-30"></div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-          {APPS.map((app) => (
-            <AppCard key={app.id} app={app} onClick={handleCardClick} />
-          ))}
+      {/* --- MOBILE HEADER --- */}
+      <header className="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-[#050505]/80 backdrop-blur-md z-50 sticky top-0">
+        <div className="flex items-center gap-2">
+           <div className="w-6 h-6 rounded bg-gradient-to-br from-emerald-400 to-blue-600"></div>
+           <span className="font-space font-bold text-lg tracking-tight">eyeroniq</span>
         </div>
-      </div>
+        <button 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="p-2 text-neutral-400 hover:text-white"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+          </svg>
+        </button>
+      </header>
 
-      <AppModal app={selectedApp} onClose={handleCloseModal} />
-    </main>
+      {/* --- SIDEBAR (DESKTOP) --- */}
+      <aside className={`
+        fixed md:relative inset-y-0 left-0 w-64 bg-[#0a0a0a] border-r border-white/5 transform transition-transform duration-300 z-40
+        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 flex flex-col
+      `}>
+        <div className="p-6 border-b border-white/5 hidden md:flex items-center gap-3">
+          <div className="w-8 h-8 rounded bg-gradient-to-br from-emerald-400 to-blue-600 shadow-[0_0_15px_rgba(16,185,129,0.3)]"></div>
+          <h1 className="font-space font-bold text-xl tracking-tight">eyeroniq</h1>
+        </div>
+
+        <div className="p-4">
+          <div className="relative">
+            <input 
+              type="text" 
+              placeholder="Search tools..." 
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 pl-10 text-sm focus:outline-none focus:border-emerald-500/50 transition-colors placeholder:text-neutral-600"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <svg className="w-4 h-4 text-neutral-500 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </div>
+        </div>
+
+        <nav className="flex-1 overflow-y-auto p-4 space-y-1">
+          <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4 px-2 mt-4">Categories</div>
+          <button 
+            onClick={() => { setActiveCategory('All'); setIsMobileMenuOpen(false); }}
+            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${activeCategory === 'All' ? 'bg-white/10 text-white' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}
+          >
+            <div className={`w-2 h-2 rounded-full ${activeCategory === 'All' ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]' : 'bg-neutral-600'}`}></div>
+            Overview
+          </button>
+          
+          {CATEGORIES.map(cat => (
+            <button 
+              key={cat}
+              onClick={() => { setActiveCategory(cat); setIsMobileMenuOpen(false); }}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${activeCategory === cat ? 'bg-white/10 text-white' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}
+            >
+              <div className={`w-2 h-2 rounded-full ${activeCategory === cat ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]' : 'bg-neutral-600'}`}></div>
+              {cat}
+            </button>
+          ))}
+        </nav>
+
+        <div className="p-4 border-t border-white/5">
+          <div className="flex items-center gap-3 px-2 py-2 rounded-lg bg-gradient-to-r from-white/5 to-transparent border border-white/5">
+            <div className="w-8 h-8 rounded-full bg-neutral-700 flex items-center justify-center text-xs font-bold text-white">JD</div>
+            <div className="flex-1">
+               <div className="text-xs font-medium text-white">John Doe</div>
+               <div className="text-[10px] text-neutral-500">Administrator</div>
+            </div>
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+      </aside>
+
+      {/* --- MAIN CONTENT --- */}
+      <main className="flex-1 relative z-10 flex flex-col h-[calc(100vh-64px)] md:h-screen overflow-hidden">
+        
+        {/* Header with Stats (Desktop) */}
+        <div className="hidden md:flex items-center justify-between px-8 py-6 border-b border-white/5 bg-[#050505]/50 backdrop-blur-sm sticky top-0 z-20">
+          <div>
+            <h2 className="text-2xl font-space font-bold text-white">Dashboard</h2>
+            <p className="text-neutral-400 text-sm">Welcome back to Neural Hub.</p>
+          </div>
+          <div className="flex gap-4">
+             <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/5 flex flex-col items-end">
+                <span className="text-[10px] text-neutral-500 uppercase tracking-wider">Active Tools</span>
+                <span className="font-mono text-lg font-bold text-emerald-400">{filteredApps.length}</span>
+             </div>
+             <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/5 flex flex-col items-end">
+                <span className="text-[10px] text-neutral-500 uppercase tracking-wider">System Status</span>
+                <span className="font-mono text-lg font-bold text-blue-400">ONLINE</span>
+             </div>
+          </div>
+        </div>
+
+        {/* Mobile Category Pills */}
+        <div className="md:hidden p-4 overflow-x-auto whitespace-nowrap border-b border-white/5 flex gap-2 scrollbar-hide">
+           <button 
+              onClick={() => setActiveCategory('All')}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold border transition-colors ${activeCategory === 'All' ? 'bg-white text-black border-white' : 'bg-transparent text-neutral-400 border-white/20'}`}
+           >
+             All
+           </button>
+           {CATEGORIES.map(cat => (
+             <button 
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold border transition-colors ${activeCategory === cat ? 'bg-white text-black border-white' : 'bg-transparent text-neutral-400 border-white/20'}`}
+             >
+              {cat}
+             </button>
+           ))}
+        </div>
+
+        {/* Scrollable Grid Area */}
+        <div className="flex-1 overflow-y-auto p-4 md:p-8">
+          {filteredApps.length === 0 ? (
+            <div className="h-64 flex flex-col items-center justify-center text-neutral-500">
+               <svg className="w-12 h-12 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+               <p>No active modules found for this query.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 pb-20">
+              {filteredApps.map(app => (
+                <AppCard key={app.id} app={app} onClick={setSelectedApp} />
+              ))}
+            </div>
+          )}
+        </div>
+      </main>
+
+      <AppModal app={selectedApp} onClose={() => setSelectedApp(null)} />
+    </div>
   );
 };
 

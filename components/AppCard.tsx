@@ -10,22 +10,40 @@ const AppCard: React.FC<AppCardProps> = ({ app, onClick }) => {
   return (
     <div
       onClick={() => onClick(app)}
-      className={`relative aspect-[16/9] flex flex-col justify-end p-4 bg-neutral-900/60 backdrop-blur-md rounded-2xl border border-neutral-800 cursor-pointer group transition-all duration-300 ease-out overflow-hidden hover:-translate-y-1 ${app.colorClasses.hoverShadow} hover:shadow-xl`}
+      className="group relative bg-[#0f0f0f] border border-white/5 hover:border-white/20 rounded-xl p-5 cursor-pointer transition-all duration-300 hover:translate-y-[-2px] hover:shadow-xl overflow-hidden"
     >
-      <div className={`absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/50 opacity-100 group-hover:opacity-0 transition-opacity duration-500`}></div>
-      <div className={`absolute inset-0 bg-gradient-to-br from-transparent ${app.colorClasses.bg}/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-      
-      <div className="absolute top-4 right-4 text-gray-500 group-hover:text-gray-200 transition-colors duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-          <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-        </svg>
+      {/* Top Bar */}
+      <div className="flex justify-between items-start mb-4">
+        <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg font-bold bg-opacity-10 ${app.colorClasses.bg} ${app.colorClasses.text} border border-opacity-20 ${app.colorClasses.border}`}>
+          {app.name.charAt(0)}
+        </div>
+        <div className="flex items-center gap-2">
+           <span className="inline-block w-2 h-2 rounded-full bg-emerald-500/50 shadow-[0_0_5px_rgba(16,185,129,0.4)]"></span>
+           <span className={`text-[10px] font-bold uppercase tracking-wider text-neutral-500 group-hover:text-white transition-colors`}>
+             {app.category}
+           </span>
+        </div>
       </div>
 
-      <div className="relative z-10">
-        <h3 className={`text-xl font-bold ${app.colorClasses.text}`}>{app.name}</h3>
-        <p className="text-gray-400 text-xs mt-2 leading-snug line-clamp-3">{app.description}</p>
+      {/* Content */}
+      <div className="mb-4">
+        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">{app.name}</h3>
+        <p className="text-neutral-400 text-sm leading-relaxed line-clamp-2">{app.description}</p>
       </div>
+
+      {/* Footer / Action */}
+      <div className="pt-4 border-t border-white/5 flex justify-between items-center">
+         <span className="text-xs text-neutral-600 font-mono">v1.0.4</span>
+         <div className="flex items-center gap-2 text-xs font-bold text-neutral-400 group-hover:text-white transition-colors">
+            <span>OPEN MODULE</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+         </div>
+      </div>
+      
+      {/* Hover Glow Effect */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${app.colorClasses.bg} to-transparent opacity-0 group-hover:opacity-5 pointer-events-none transition-opacity duration-500`}></div>
     </div>
   );
 };
