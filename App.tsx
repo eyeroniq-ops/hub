@@ -9,7 +9,7 @@ const APPS: AppData[] = [
     id: 'search-matrix',
     name: 'Search Matrix',
     description: 'Matriz de búsqueda avanzada e inteligencia competitiva para análisis de mercado.',
-    url: 'https://searchmatrix.netlify.app',
+    url: 'https://search-matrix-by-eyeroniq-623608258254.us-west1.run.app',
     category: 'Búsqueda',
     colorClasses: {
       bg: '#06b6d4', // Cyan
