@@ -51,21 +51,6 @@ const APPS: AppData[] = [
     }
   },
   {
-    id: 'brand-assist',
-    name: 'Brand Assist',
-    description: 'Compañero de marca inteligente y gestor de identidad para activos corporativos.',
-    url: 'https://gemini-brand-chat-assistant-631000688449.us-west1.run.app',
-    category: 'Administrativo',
-    colorClasses: {
-      bg: '#2563eb', // Blue
-      hoverBg: '#3b82f6',
-      shadow: '#1d4ed8',
-      hoverShadow: '#2563eb',
-      text: 'text-blue-400',
-      border: 'border-blue-600'
-    }
-  },
-  {
     id: 'social-media-wizard',
     name: 'Social Media Wizard',
     description: 'Panel administrativo y de planificación estratégica para canales sociales.',
