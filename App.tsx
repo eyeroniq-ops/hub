@@ -11,6 +11,7 @@ const APPS: AppData[] = [
     description: 'Matriz de búsqueda avanzada e inteligencia competitiva para análisis de mercado.',
     url: 'https://search-matrix-by-eyeroniq-623608258254.us-west1.run.app',
     category: 'Búsqueda',
+    version: '2.1.0',
     colorClasses: {
       bg: '#06b6d4', // Cyan
       hoverBg: '#22d3ee',
@@ -26,6 +27,7 @@ const APPS: AppData[] = [
     description: 'Marco de diagnóstico avanzado para la consistencia de marca y seguimiento de salud.',
     url: 'https://brandstatus.netlify.app',
     category: 'Diagnóstico',
+    version: '1.0.5',
     colorClasses: {
       bg: '#f97316', // Orange
       hoverBg: '#fb923c',
@@ -41,6 +43,7 @@ const APPS: AppData[] = [
     description: 'Entorno de diseño integral de IA para la creación de contenido profesional.',
     url: 'https://ai-studio-eyeroniq-631000688449.us-west1.run.app',
     category: 'Diseño',
+    version: '3.2.0',
     colorClasses: {
       bg: '#ef4444', // Red
       hoverBg: '#f87171',
@@ -56,6 +59,7 @@ const APPS: AppData[] = [
     description: 'Panel administrativo y de planificación estratégica para canales sociales.',
     url: 'https://socialmediawizard.netlify.app/',
     category: 'Administrativo',
+    version: '1.4.2',
     colorClasses: {
       bg: '#10b981', // Emerald
       hoverBg: '#34d399',
@@ -71,6 +75,7 @@ const APPS: AppData[] = [
     description: 'Herramienta inteligente de cotización y estimación de recursos para proyectos.',
     url: 'https://eyecot.netlify.app/',
     category: 'Administrativo',
+    version: '1.1.0',
     colorClasses: {
       bg: '#f59e0b', // Amber
       hoverBg: '#fbbf24',
@@ -81,11 +86,28 @@ const APPS: AppData[] = [
     }
   },
   {
+    id: 'eyeroniq-ops',
+    name: 'Eyeroniq Ops',
+    description: 'Gestor de tareas, CRM y RRHH para la optimización de operaciones empresariales.',
+    url: 'https://eyeroniqops.netlify.app',
+    category: 'Administrativo',
+    version: '2.0.1',
+    colorClasses: {
+      bg: '#8b5cf6', // Violet
+      hoverBg: '#a78bfa',
+      shadow: '#7c3aed',
+      hoverShadow: '#8b5cf6',
+      text: 'text-violet-400',
+      border: 'border-violet-500'
+    }
+  },
+  {
     id: 'survey-eyeroniq',
     name: 'Survey Eyeroniq',
     description: 'Sistema integral de recopilación y análisis de opiniones y retroalimentación.',
     url: 'https://surveyeroniq.netlify.app',
     category: 'Diagnóstico',
+    version: '1.0.0',
     colorClasses: {
       bg: '#84cc16', // Lime
       hoverBg: '#a3e635',

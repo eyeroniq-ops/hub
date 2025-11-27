@@ -5,6 +5,7 @@ export interface AppData {
   name: string;
   description: string;
   url: string;
+  version: string;
   category: AppCategory;
   colorClasses: {
     bg: string;

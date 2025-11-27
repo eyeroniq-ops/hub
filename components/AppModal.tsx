@@ -61,7 +61,7 @@ const AppModal: React.FC<AppModalProps> = ({ app, onClose }) => {
                 </div>
                 <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
                     <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Versión</div>
-                    <div className="text-white font-mono font-bold">2.4.0</div>
+                    <div className="text-white font-mono font-bold">{app.version}</div>
                 </div>
             </div>
 
