@@ -54,6 +54,22 @@ const APPS: AppData[] = [
     }
   },
   {
+    id: 'post-creator',
+    name: 'Post Creator',
+    description: 'Generación y diseño automatizado de contenido para redes sociales.',
+    url: 'https://nano-banana-3-pro-post-creator-769977439353.us-west1.run.app/',
+    category: 'Diseño',
+    version: '1.0.0',
+    colorClasses: {
+      bg: '#ec4899', // Pink
+      hoverBg: '#f472b6',
+      shadow: '#db2777',
+      hoverShadow: '#ec4899',
+      text: 'text-pink-400',
+      border: 'border-pink-500'
+    }
+  },
+  {
     id: 'social-media-wizard',
     name: 'Social Media Wizard',
     description: 'Panel administrativo y de planificación estratégica para canales sociales.',
