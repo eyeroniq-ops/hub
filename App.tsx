@@ -161,7 +161,7 @@ const App: React.FC = () => {
       {/* --- MOBILE HEADER --- */}
       <header className="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-[#050505]/80 backdrop-blur-md z-50 sticky top-0">
         <div className="flex items-center gap-2">
-           <div className="w-6 h-6 rounded bg-gradient-to-br from-emerald-400 to-blue-600"></div>
+           {/* Icon removed */}
            <span className="font-space font-bold text-lg tracking-tight">eyeroniq</span>
         </div>
         <button 
@@ -180,7 +180,7 @@ const App: React.FC = () => {
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 flex flex-col
       `}>
         <div className="p-6 border-b border-white/5 hidden md:flex items-center gap-3">
-          <div className="w-8 h-8 rounded bg-gradient-to-br from-emerald-400 to-blue-600 shadow-[0_0_15px_rgba(16,185,129,0.3)]"></div>
+          {/* Icon removed */}
           <h1 className="font-space font-bold text-xl tracking-tight">eyeroniq</h1>
         </div>
 
@@ -219,16 +219,7 @@ const App: React.FC = () => {
           ))}
         </nav>
 
-        <div className="p-4 border-t border-white/5">
-          <div className="flex items-center gap-3 px-2 py-2 rounded-lg bg-gradient-to-r from-white/5 to-transparent border border-white/5">
-            <div className="w-8 h-8 rounded-full bg-neutral-700 flex items-center justify-center text-xs font-bold text-white">JD</div>
-            <div className="flex-1">
-               <div className="text-xs font-medium text-white">John Doe</div>
-               <div className="text-[10px] text-neutral-500">Administrador</div>
-            </div>
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          </div>
-        </div>
+        {/* User profile section removed */}
       </aside>
 
       {/* --- MAIN CONTENT --- */}
@@ -238,7 +229,7 @@ const App: React.FC = () => {
         <div className="hidden md:flex items-center justify-between px-8 py-6 border-b border-white/5 bg-[#050505]/50 backdrop-blur-sm sticky top-0 z-20">
           <div>
             <h2 className="text-2xl font-space font-bold text-white">Panel Principal</h2>
-            <p className="text-neutral-400 text-sm">Bienvenido de nuevo al Hub Neuronal.</p>
+            <p className="text-neutral-400 text-sm">Bienvenido</p>
           </div>
           <div className="flex gap-4">
              <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/5 flex flex-col items-end">
