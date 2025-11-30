@@ -57,7 +57,7 @@ const APPS: AppData[] = [
     id: 'post-creator',
     name: 'Post Creator',
     description: 'Generación y diseño automatizado de contenido para redes sociales.',
-    url: 'https://nano-banana-3-pro-post-creator-769977439353.us-west1.run.app/',
+    url: 'https://aipostscreator.netlify.app/',
     category: 'Diseño',
     version: '1.0.0',
     colorClasses: {
