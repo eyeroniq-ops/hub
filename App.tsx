@@ -9,7 +9,7 @@ const APPS: AppData[] = [
     id: 'search-matrix',
     name: 'Search Matrix',
     description: 'Matriz de búsqueda avanzada e inteligencia competitiva para análisis de mercado.',
-    url: 'https://search-matrix-by-eyeroniq-623608258254.us-west1.run.app',
+    url: 'https://searchmatrix.netlify.app',
     category: 'Búsqueda',
     version: '2.1.0',
     colorClasses: {
@@ -41,7 +41,7 @@ const APPS: AppData[] = [
     id: 'ai-studio',
     name: 'AI Studio',
     description: 'Entorno de diseño integral de IA para la creación de contenido profesional.',
-    url: 'https://ai-studio-eyeroniq-631000688449.us-west1.run.app',
+    url: 'https://ai-studio-eyeroniq-769977439353.us-west1.run.app',
     category: 'Diseño',
     version: '3.2.0',
     colorClasses: {
@@ -67,6 +67,38 @@ const APPS: AppData[] = [
       hoverShadow: '#ec4899',
       text: 'text-pink-400',
       border: 'border-pink-500'
+    }
+  },
+  {
+    id: 'story-series',
+    name: 'Story Series',
+    description: 'Creación de secuencias de historias narrativas visuales para redes sociales.',
+    url: 'https://deft-klepon-85d2c6.netlify.app',
+    category: 'Diseño',
+    version: '1.0.0',
+    colorClasses: {
+      bg: '#6366f1', // Indigo
+      hoverBg: '#818cf8',
+      shadow: '#4f46e5',
+      hoverShadow: '#6366f1',
+      text: 'text-indigo-400',
+      border: 'border-indigo-500'
+    }
+  },
+  {
+    id: 'post-series',
+    name: 'Post Series',
+    description: 'Generación de series de publicaciones coherentes y temáticas para feeds.',
+    url: 'https://flourishing-sfogliatella-18bb7f.netlify.app',
+    category: 'Diseño',
+    version: '1.0.0',
+    colorClasses: {
+      bg: '#3b82f6', // Blue
+      hoverBg: '#60a5fa',
+      shadow: '#2563eb',
+      hoverShadow: '#3b82f6',
+      text: 'text-blue-400',
+      border: 'border-blue-500'
     }
   },
   {
