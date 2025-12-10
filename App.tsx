@@ -41,7 +41,7 @@ const APPS: AppData[] = [
     id: 'ai-studio',
     name: 'AI Studio',
     description: 'Entorno de diseño integral de IA para la creación de contenido profesional.',
-    url: 'https://ai-studio-eyeroniq-769977439353.us-west1.run.app',
+    url: 'https://eyeaistudio.netlify.app',
     category: 'Diseño',
     version: '3.2.0',
     colorClasses: {
